@@ -3,7 +3,7 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Homes',
+      text: 'Who we are',
       links: [
         {
           text: 'SaaS',
@@ -24,7 +24,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Pages',
+      text: 'What we do',
       links: [
         {
           text: 'Features (Anchor Link)',
@@ -57,7 +57,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Landing',
+      text: 'Join Mensa',
       links: [
         {
           text: 'Lead Generation',
@@ -86,7 +86,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Blog',
+      text: 'Photos & Recaps',
       links: [
         {
           text: 'Blog List',
@@ -111,7 +111,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Widgets',
+      text: 'More',
       href: '#',
     },
   ],
