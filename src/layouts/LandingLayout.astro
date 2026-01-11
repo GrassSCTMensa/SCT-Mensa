@@ -16,6 +16,7 @@ const { metadata } = Astro.props;
   <Fragment slot="announcement">
     <slot name="announcement" />
   </Fragment>
+
   <Fragment slot="header">
     <slot name="header">
       <Header
@@ -26,10 +27,5 @@ const { metadata } = Astro.props;
             href: 'https://github.com/arthelokyo/astrowind',
           },
         ]}
-        showToggleTheme
         position="right"
       />
-    </slot>
-  </Fragment>
-  <slot />
-</PageLayout>
