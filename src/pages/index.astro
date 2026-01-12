@@ -1,39 +1,55 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+
+// ✅ Update this path if your file name/location differs
+// Common place: src/assets/images/
+import heroImage from '~/assets/images/sctmensa-hero-coast-3000x1500.jpg';
 
 const metadata = {
-  title: 'Southern Connecticut Mensa',
-  description:
-    'Southern Connecticut Mensa — a community of curious, engaged, like-minded people in Fairfield County, Connecticut.',
+  title: 'Home',
+  description: 'Southern Connecticut Mensa — Fairfield County community, events, and high-IQ fellowship.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Section -->
-  <Hero
-    image={{
-      src: '~/assets/images/sctmensa-hero-coast-3000x1500.jpg',
-      alt: 'Fairfield County coastline',
-    }}
-  >
-    <Fragment slot="title">
-      Southern Connecticut Mensa
-    </Fragment>
-  </Hero>
+  <!-- HERO (full width image + text overlay) -->
+  <section class="relative w-full overflow-hidden">
+    <!-- height controls -->
+    <div class="relative h-[260px] sm:h-[320px] md:h-[420px]">
+      <!-- background image -->
+      <img
+        src={heroImage}
+        alt="Fairfield County coastline"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
 
-  <!-- Intro Content -->
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-    <p class="text-lg leading-relaxed text-slate-700">
-      Southern Connecticut Mensa is the local Mensa chapter serving Fairfield County, Connecticut.
-      Our members come from many backgrounds and walks of life, but what we share is curiosity,
-      connection, and a genuine enjoyment of exploring ideas together.
+      <!-- optional dark overlay to keep text readable -->
+      <div class="absolute inset-0 bg-black/25"></div>
+
+      <!-- text overlay -->
+      <div class="absolute inset-0 flex items-center justify-center px-6">
+        <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-center drop-shadow">
+          Southern Connecticut Mensa
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY CONTENT -->
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+    <p class="text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+      Southern Connecticut Mensa is the local Mensa chapter serving Fairfield County, Connecticut. Our members come from
+      many backgrounds and walks of life, but what we share is curiosity, connection, and a genuine enjoyment of exploring
+      ideas together.
     </p>
 
-    <p class="mt-6 text-lg leading-relaxed text-slate-700">
-      We’re a community of like-minded people with shared experiences around being intelligent.
-      We get together to have fun, meet new and interesting people, and challenge our minds.
-      It’s a welcoming community where it’s okay to be yourself.
+    <p class="mt-6 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+      We’re a community of like-minded people with shared experiences around being intelligent. We get together to have
+      fun, meet new and interesting people, and challenge our minds. It’s a welcoming community where it’s okay to be
+      yourself.
     </p>
   </section>
 </Layout>
+
