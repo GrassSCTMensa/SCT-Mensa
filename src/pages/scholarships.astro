@@ -1,0 +1,36 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import heroImage from '~/assets/images/sctmensa-hero-coast-3000x1500.jpg';
+
+const metadata = {
+  title: 'Scholarships',
+  description: 'Scholarship information and resources connected to Mensa and our local chapter.',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="relative w-full overflow-hidden">
+    <div class="relative h-[260px] sm:h-[320px] md:h-[420px]">
+      <img
+        src={heroImage.src}
+        alt="Fairfield County coastline"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-black/25"></div>
+
+      <div class="absolute inset-0 flex items-end justify-center px-6 pb-10 md:pb-14">
+        <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-center drop-shadow">
+          Scholarships
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+    <p class="text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+      This page will explain scholarship opportunities and how to apply (and link to official resources where appropriate).
+    </p>
+  </section>
+</Layout>
