@@ -11,7 +11,7 @@ const { footNote = '', theme = 'light' } = Astro.props;
 
 const orgName = SITE?.name ?? 'Southern Connecticut Mensa';
 ---
-
+<!--
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
   <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 
@@ -67,3 +67,79 @@ const orgName = SITE?.name ?? 'Southern Connecticut Mensa';
     </div>
   </div>
 </footer>
+-->
+
+<footer class="relative bg-[#0f2a44] text-white not-prose">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+    <div class="grid grid-cols-12 gap-6 gap-y-10">
+
+      <!-- Left / Description -->
+      <div class="col-span-12 lg:col-span-4">
+        <div class="mb-3 text-xl font-semibold">
+          <a href={getHomePermalink()} class="hover:underline">
+            {SITE?.name}
+          </a>
+        </div>
+
+        <p class="text-sm text-slate-200 mb-4">
+          The official website of the Southern Connecticut chapter of Mensa.
+        </p>
+
+        <p class="text-sm text-slate-200">
+          Questions? <a href="/contact" class="underline hover:text-white">Contact us</a>.
+        </p>
+      </div>
+
+      <!-- Link Columns -->
+      {
+        links.map(({ title, links }) => (
+          <div class="col-span-6 md:col-span-3 lg:col-span-2">
+            <div class="font-medium mb-3">{title}</div>
+            <ul class="space-y-2 text-sm">
+              {links.map(({ text, href, ariaLabel }) => (
+                <li>
+                  <a
+                    href={href}
+                    aria-label={ariaLabel}
+                    class="text-slate-200 hover:text-white hover:underline transition"
+                  >
+                    <Fragment set:html={text} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Bottom row -->
+    <div class="mt-10 pt-6 border-t border-slate-600 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+      <!-- Social -->
+      {
+        socialLinks?.length ? (
+          <ul class="flex -ml-2">
+            {socialLinks.map(({ ariaLabel, href, icon }) => (
+              <li>
+                <a
+                  href={href}
+                  aria-label={ariaLabel}
+                  class="inline-flex items-center p-2 rounded hover:bg-white/10 transition"
+                >
+                  {icon && <Icon name={icon} class="w-5 h-5 text-white" />}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : null
+      }
+
+      <!-- Footnote -->
+      <div class="text-sm text-slate-300">
+        <Fragment set:html={footNote} />
+      </div>
+    </div>
+  </div>
+</footer>
+
