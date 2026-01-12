@@ -7,7 +7,7 @@ export const headerData = {
     { text: 'What We Do', href: getPermalink('/what-we-do') },
 
     // Blog list used for event recaps
-    { text: 'Photos & Recaps', href: getBlogPermalink() },
+    { text: 'Events', href: getBlogPermalink() },
 
     { text: 'Join Mensa', href: getPermalink('/join') },
 
