@@ -4,11 +4,12 @@ import heroImage from '~/assets/images/sctmensa-hero-coast-3000x1500.jpg';
 
 const metadata = {
   title: 'National Mensa Events',
-  description: 'A guide to major national Mensa gatherings, events, and resources.',
+  description: 'Learn about American Mensa’s national events and where to find details on the official site.',
 };
 ---
 
 <Layout metadata={metadata}>
+  <!-- HERO -->
   <section class="relative w-full overflow-hidden">
     <div class="relative h-[200px] sm:h-[260px] md:h-[320px]">
       <img
@@ -28,10 +29,165 @@ const metadata = {
     </div>
   </section>
 
+  <!-- BODY CONTENT -->
   <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
     <p class="text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      This page will highlight national events (like larger gatherings and conventions), plus where to find official
-      event calendars and registration details.
+      In addition to our local chapter events, American Mensa hosts and supports national events across the country.
+      Below are some of the most popular options, with links to learn more on the official American Mensa site.
     </p>
+
+    <div class="mt-10 space-y-10">
+      <!-- Events Calendar -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">National Events Calendar</h2>
+        <p class="mt-3 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+          The easiest way to see what’s coming up. Browse events by type and find dates for Regional Gatherings, Mind Games,
+          committee meetings, and more.
+        </p>
+        <div class="mt-5">
+          <a
+            href="https://www.us.mensa.org/attend/calendar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#0f2a44] px-6 py-3 text-sm font-semibold text-white hover:bg-[#14395f] transition-colors"
+          >
+            View the Events Calendar
+          </a>
+        </div>
+      </div>
+
+      <!-- Annual Gathering -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Annual Gathering (AG)</h2>
+        <p class="mt-3 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+          The biggest yearly American Mensa event — a multi-day experience with speakers, games, meetups, and plenty of
+          social time. Many members turn it into a full trip by exploring the host city before or after.
+        </p>
+        <div class="mt-5">
+          <a
+            href="https://www.us.mensa.org/attend/ags/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#0f2a44] px-6 py-3 text-sm font-semibold text-white hover:bg-[#14395f] transition-colors"
+          >
+            Learn about the Annual Gathering
+          </a>
+        </div>
+      </div>
+
+      <!-- Regional Gatherings -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Regional Gatherings (RGs)</h2>
+        <p class="mt-3 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+          Weekend-long events hosted by local groups around the country. RGs range from small and informal to large,
+          multi-day gatherings — usually with speakers, games, hospitality, and lots of socializing.
+        </p>
+        <div class="mt-5">
+          <a
+            href="https://www.us.mensa.org/attend/regional-gatherings/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#0f2a44] px-6 py-3 text-sm font-semibold text-white hover:bg-[#14395f] transition-colors"
+          >
+            Explore Regional Gatherings
+          </a>
+        </div>
+      </div>
+
+      <!-- Colloquium -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Colloquium</h2>
+        <p class="mt-3 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+          An intellectually focused event where specialists present on a major topic and engage in discussion and Q&amp;A.
+          It’s designed for deep dives, thoughtful dialogue, and big ideas.
+        </p>
+        <div class="mt-5">
+          <a
+            href="https://www.us.mensa.org/attend/colloquium/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#0f2a44] px-6 py-3 text-sm font-semibold text-white hover:bg-[#14395f] transition-colors"
+          >
+            Learn about Colloquium
+          </a>
+        </div>
+      </div>
+
+      <!-- Mind Games -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Mind Games®</h2>
+        <p class="mt-3 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+          A national tabletop game competition where Mensans play and evaluate new-to-market games over a long weekend.
+          It’s part marathon, part party — and a great excuse to meet fellow game lovers.
+        </p>
+        <div class="mt-5">
+          <a
+            href="https://www.us.mensa.org/attend/mindgames/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#0f2a44] px-6 py-3 text-sm font-semibold text-white hover:bg-[#14395f] transition-colors"
+          >
+            Learn about Mind Games
+          </a>
+        </div>
+      </div>
+
+      <!-- CultureQuest -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">CultureQuest®</h2>
+        <p class="mt-3 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+          A cultural literacy competition where teams tackle wide-ranging questions — from history and geography to music,
+          literature, and pop culture. Competitive, fun, and very on-brand.
+        </p>
+        <div class="mt-5">
+          <a
+            href="https://www.us.mensa.org/attend/culturequest/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#0f2a44] px-6 py-3 text-sm font-semibold text-white hover:bg-[#14395f] transition-colors"
+          >
+            Learn about CultureQuest
+          </a>
+        </div>
+      </div>
+
+      <!-- Leadership Workshops -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Leadership Workshops</h2>
+        <p class="mt-3 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+          Training and development events for volunteer leaders (and future leaders). These are typically practical,
+          content-rich, and focused on helping local groups run strong, engaging communities.
+        </p>
+        <div class="mt-5">
+          <a
+            href="https://www.us.mensa.org/attend/ldws/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#0f2a44] px-6 py-3 text-sm font-semibold text-white hover:bg-[#14395f] transition-colors"
+          >
+            Learn about Leadership Workshops
+          </a>
+        </div>
+      </div>
+
+      <!-- Add an Event -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Add an Event</h2>
+        <p class="mt-3 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+          Members can submit events to be included in the national listings. This page may require a Mensa login to access.
+        </p>
+        <div class="mt-5">
+          <a
+            href="https://www.us.mensa.org/attend/gatheringslisting/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#0f2a44] px-6 py-3 text-sm font-semibold text-white hover:bg-[#14395f] transition-colors"
+          >
+            Go to Add an Event
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 </Layout>
+
