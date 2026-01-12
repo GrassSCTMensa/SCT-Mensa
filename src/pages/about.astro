@@ -1,110 +1,44 @@
 ---
-import PageLayout from '~/layouts/PageLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import heroImage from '~/assets/images/sctmensa-hero-coast-3000x1500.jpg';
 
 const metadata = {
   title: 'Who We Are',
-  description:
-    'Southern Connecticut Mensa is a welcoming community of curious, like-minded people in Fairfield County, Connecticut.',
+  description: 'Learn about Southern Connecticut Mensa and the community we’re building in Fairfield County.',
 };
 ---
 
-<PageLayout metadata={metadata}>
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-    <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Who We Are</h1>
+<Layout metadata={metadata}>
+  <!-- HERO (full width image + text overlay) -->
+  <section class="relative w-full overflow-hidden">
+    <div class="relative h-[260px] sm:h-[320px] md:h-[420px]">
+      <img
+        src={heroImage.src}
+        alt="Fairfield County coastline"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-black/25"></div>
 
-    <p class="mt-4 text-base md:text-lg text-muted dark:text-gray-300">
-      Southern Connecticut Mensa is the local Mensa chapter serving <strong>Fairfield County, Connecticut</strong>. Our
-      members come from many backgrounds and walks of life, but what we share is curiosity, connection, and a genuine
-      enjoyment of exploring ideas together.
+      <div class="absolute inset-0 flex items-end justify-center px-6 pb-10 md:pb-14">
+        <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-center drop-shadow">
+          Who We Are
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY CONTENT -->
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+    <p class="text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+      Southern Connecticut Mensa is the local chapter serving Fairfield County and beyond. We’re a community of curious,
+      friendly people who enjoy conversation, learning, and spending time with others who “get it.”
     </p>
 
-    <p class="mt-4 text-base md:text-lg text-muted dark:text-gray-300">
-      We’re a community of like-minded people with shared experiences around being intelligent. We get together to have
-      fun, meet new and interesting people, and challenge our minds. It’s a welcoming community where it’s okay to be
-      yourself.
-    </p>
-
-    <hr class="my-10 border-gray-200 dark:border-slate-800" />
-
-    <h2 class="text-xl md:text-2xl font-semibold">What We Do</h2>
-
-    <p class="mt-4 text-sm md:text-base text-muted dark:text-gray-300">
-      Our events cover a wide range of interests, and no two members participate in exactly the same way.
-    </p>
-
-    <p class="mt-3 text-sm md:text-base text-muted dark:text-gray-300">
-      Some gatherings are purely social — dinners, barbecues, bowling nights, or casual get-togethers where the focus is
-      simply spending time together.
-    </p>
-
-    <p class="mt-3 text-sm md:text-base text-muted dark:text-gray-300">
-      Others blend social and mind-engaging activities, like escape rooms, game nights, local trivia events, and group
-      challenges where conversation and collaboration naturally happen along the way.
-    </p>
-
-    <p class="mt-3 text-sm md:text-base text-muted dark:text-gray-300">
-      We also host intellectual events such as speaker presentations and discussions. These are often led by members or
-      local experts and cover topics of all kinds — from space, engineering, cryptocurrency, and finance to sports,
-      entertainment, and more.
-    </p>
-
-    <p class="mt-3 text-sm md:text-base text-muted dark:text-gray-300">
-      Beyond our local chapter, members often participate in <strong>Mind Games</strong>, as well as regional and
-      national Mensa gatherings held throughout the country.
-    </p>
-
-    <p class="mt-4 text-sm md:text-base text-muted dark:text-gray-300 font-medium">
-      You come to the events that interest you. There’s no single “right” way to participate.
-    </p>
-
-    <p class="mt-2 text-sm md:text-base text-muted dark:text-gray-300">
-      People come for different reasons and participate in different ways, but the common thread is curiosity,
-      openness, and enjoying the company of like-minded people.
-    </p>
-
-    <hr class="my-10 border-gray-200 dark:border-slate-800" />
-
-    <h2 class="text-xl md:text-2xl font-semibold">Guests &amp; Partners</h2>
-
-    <p class="mt-4 text-sm md:text-base text-muted dark:text-gray-300">
-      Spouses, partners, and guests are often welcome at social events, and many members attend together.
-    </p>
-
-    <p class="mt-2 text-sm md:text-base text-muted dark:text-gray-300">
-      Each event listing notes whether guests are invited, so it’s easy to know what to expect.
-    </p>
-
-    <hr class="my-10 border-gray-200 dark:border-slate-800" />
-
-    <h2 class="text-xl md:text-2xl font-semibold">What Is Mensa?</h2>
-
-    <p class="mt-4 text-sm md:text-base text-muted dark:text-gray-300">
-      Mensa is an international society open to people who score in the top 2% on an accepted standardized intelligence
-      test.
-    </p>
-
-    <p class="mt-2 text-sm md:text-base text-muted dark:text-gray-300">
-      There are Mensa chapters around the world. In the United States, local chapters operate under <strong>American
-      Mensa</strong> while also being part of the broader international organization.
-    </p>
-
-    <p class="mt-2 text-sm md:text-base text-muted dark:text-gray-300">
-      Local chapters like Southern Connecticut Mensa exist to bring members together for connection, shared interests,
-      and community.
-    </p>
-
-    <hr class="my-10 border-gray-200 dark:border-slate-800" />
-
-    <h2 class="text-xl md:text-2xl font-semibold">Leadership</h2>
-
-    <p class="mt-4 text-sm md:text-base text-muted dark:text-gray-300">
-      Southern Connecticut Mensa is run entirely by volunteers. Leadership exists to support the community — organizing
-      events, handling communications, and helping create opportunities for members to connect.
-    </p>
-
-    <p class="mt-2 text-sm md:text-base text-muted dark:text-gray-300">
-      If you’re interested in getting involved, whether by helping with events, sharing ideas, or supporting the
-      chapter in other ways, we’re always happy to hear from you.
+    <p class="mt-6 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+      Mensa is an international high-IQ society; membership is based on a qualifying score from an accepted test.
+      Within that, members bring every kind of background and interest.
     </p>
   </section>
-</PageLayout>
+</Layout>
