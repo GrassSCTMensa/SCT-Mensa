@@ -9,6 +9,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <!-- HERO -->
   <section class="relative w-full overflow-hidden">
     <div class="relative h-[200px] sm:h-[260px] md:h-[320px]">
       <img
@@ -28,9 +29,25 @@ const metadata = {
     </div>
   </section>
 
+  <!-- BODY CONTENT -->
   <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
     <p class="text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      This page can include member-specific info like how to get involved, volunteering, SIGs, and local chapter updates.
+      Many member features live on our primary member site. That’s where you’ll find the community forum (where members
+      connect and share ideas), <em>The Chronicle</em>—our monthly newsletter—as well as additional resources and our
+      members-only Facebook community. If you’re a current member, you can access all of those features through the
+      link below.
     </p>
+
+    <div class="mt-8">
+      <a
+        href="https://scm66.org/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center rounded-full bg-[#0f2a44] px-6 py-3 text-sm font-semibold text-white hover:bg-[#14395f] transition-colors"
+      >
+        Go to Member Site
+      </a>
+    </div>
   </section>
 </Layout>
+
