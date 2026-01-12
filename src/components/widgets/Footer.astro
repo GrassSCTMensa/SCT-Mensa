@@ -1,173 +1,94 @@
 ---
-import { Icon } from 'astro-icon/components';
 import { SITE } from 'astrowind:config';
 import { getHomePermalink } from '~/utils/permalinks';
 
-interface Link {
-  text?: string;
-  href?: string;
-  ariaLabel?: string;
-  icon?: string;
-}
-
-interface Links {
-  title?: string;
-  links: Array<Link>;
-}
-
 export interface Props {
-  links: Array<Links>;
-  secondaryLinks: Array<Link>;
-  socialLinks: Array<Link>;
   footNote?: string;
-  theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const { footNote = '' } = Astro.props;
 
 const orgName = SITE?.name ?? 'Southern Connecticut Mensa';
 ---
 
-<!--
-OLD FOOTER (kept for reference)
-
-<footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
-  <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-12 dark:text-slate-300">
+<footer class="relative bg-[#0f2a44] text-white not-prose">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-12">
     <div class="grid grid-cols-12 gap-8">
-      [Left]
+
+      <!-- Left -->
       <div class="col-span-12 md:col-span-6">
-        <a class="inline-block font-semibold text-lg hover:underline" href={getHomePermalink()}>
+        <a
+          class="inline-block font-semibold text-lg hover:underline"
+          href={getHomePermalink()}
+        >
           {orgName}
         </a>
 
-        <p class="mt-2 text-sm text-muted dark:text-gray-400 max-w-prose">
+        <p class="mt-2 text-sm text-slate-200 max-w-prose">
           The official website of the Southern Connecticut chapter of Mensa.
         </p>
 
-        <div class="mt-4 text-sm text-muted dark:text-gray-400">
-          <span class="font-medium text-default dark:text-slate-200">Questions?</span>{' '}
-          <a class="hover:underline" href="/contact/">Contact us</a>.
+        <div class="mt-4 text-sm text-slate-200">
+          <span class="font-medium text-white">Questions?</span>{' '}
+          <a class="underline hover:text-white" href="/contact/">Contact us</a>.
         </div>
       </div>
 
-      [Right]
+      <!-- Right -->
       <div class="col-span-12 md:col-span-6">
         <div class="grid grid-cols-2 gap-6 text-sm">
           <div>
-            <div class="font-medium mb-2 dark:text-gray-300">Explore</div>
+            <div class="font-medium mb-2 text-white">Explore</div>
             <ul class="space-y-2">
-              <li><a class="text-muted hover:underline dark:text-gray-400" href="/who-we-are/">Who We Are</a></li>
-              <li><a class="text-muted hover:underline dark:text-gray-400" href="/what-we-do/">What We Do</a></li>
-              <li><a class="text-muted hover:underline dark:text-gray-400" href="/photos-recaps/">Events</a></li>
+              <li>
+                <a class="text-slate-200 hover:text-white hover:underline" href="/who-we-are/">
+                  Who We Are
+                </a>
+              </li>
+              <li>
+                <a class="text-slate-200 hover:text-white hover:underline" href="/what-we-do/">
+                  What We Do
+                </a>
+              </li>
+              <li>
+                <a class="text-slate-200 hover:text-white hover:underline" href="/photos-recaps/">
+                  Events
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <div class="font-medium mb-2 dark:text-gray-300">Join</div>
+            <div class="font-medium mb-2 text-white">Join</div>
             <ul class="space-y-2">
-              <li><a class="text-muted hover:underline dark:text-gray-400" href="/join-mensa/">Join Mensa</a></li>
-              <li><a class="text-muted hover:underline dark:text-gray-400" href="/contact/">Contact</a></li>
+              <li>
+                <a class="text-slate-200 hover:text-white hover:underline" href="/join-mensa/">
+                  Join Mensa
+                </a>
+              </li>
+              <li>
+                <a class="text-slate-200 hover:text-white hover:underline" href="/contact/">
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="mt-10 pt-6 border-t border-gray-200 dark:border-slate-800 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-      <div class="text-xs text-muted dark:text-gray-400">
-        © {new Date().getFullYear()} {orgName}. All rights reserved.
-      </div>
-
-      <div class="text-xs text-muted dark:text-gray-400">
-        <Fragment set:html={footNote} />
-      </div>
-    </div>
-  </div>
-</footer>
-
-END OLD FOOTER
--->
-
-<footer class="relative bg-[#0f2a44] text-white not-prose">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-    <div class="grid grid-cols-12 gap-6 gap-y-10">
-      <!-- Left / Description -->
-      <div class="col-span-12 lg:col-span-4">
-        <div class="mb-3 text-xl font-semibold">
-          <a href={getHomePermalink()} class="hover:underline">
-            {orgName}
-          </a>
-        </div>
-
-        <p class="text-sm text-slate-200 mb-4">
-          The official website of the Southern Connecticut chapter of Mensa.
-        </p>
-
-        <!-- Optional secondary links (if you pass them in config) -->
-        {secondaryLinks?.length ? (
-          <div class="text-sm text-slate-200 flex flex-wrap gap-x-2 gap-y-1 mb-4">
-            {secondaryLinks.map(({ text, href }, index) => (
-              <>
-                {index !== 0 ? <span class="opacity-60">·</span> : null}
-                <a class="hover:underline" href={href} set:html={text} />
-              </>
-            ))}
-          </div>
-        ) : null}
-
-        <p class="text-sm text-slate-200">
-          Questions? <a href="/contact/" class="underline hover:text-white">Contact us</a>.
-        </p>
-      </div>
-
-      <!-- Link Columns -->
-      {links.map(({ title, links }) => (
-        <div class="col-span-6 md:col-span-3 lg:col-span-2">
-          <div class="font-medium mb-3">{title}</div>
-          <ul class="space-y-2 text-sm">
-            {links.map(({ text, href, ariaLabel }) => (
-              <li>
-                <a
-                  href={href}
-                  aria-label={ariaLabel}
-                  class="text-slate-200 hover:text-white hover:underline transition"
-                >
-                  <Fragment set:html={text} />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
     </div>
 
     <!-- Bottom row -->
-    <div class="mt-10 pt-6 border-t border-slate-600 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <!-- Social -->
-      {socialLinks?.length ? (
-        <ul class="flex -ml-2">
-          {socialLinks.map(({ ariaLabel, href, icon }) => (
-            <li>
-              <a
-                href={href}
-                aria-label={ariaLabel}
-                class="inline-flex items-center p-2 rounded hover:bg-white/10 transition"
-              >
-                {icon ? <Icon name={icon} class="w-5 h-5 text-white" /> : null}
-              </a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <div />
-      )}
-
-      <!-- Footnote -->
-      <div class="text-sm text-slate-300">
-        <Fragment set:html={footNote} />
+    <div class="mt-10 pt-6 border-t border-white/15 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div class="text-xs text-slate-200">
+        © {new Date().getFullYear()} Southern Connecticut Mensa. All rights reserved.
       </div>
+
+      {footNote ? (
+        <div class="text-xs text-slate-200">
+          <Fragment set:html={footNote} />
+        </div>
+      ) : null}
     </div>
   </div>
 </footer>
