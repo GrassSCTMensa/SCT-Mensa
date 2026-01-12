@@ -1,117 +1,39 @@
 ---
-import PageLayout from '~/layouts/PageLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
 
 const metadata = {
-  title: 'Home',
+  title: 'Southern Connecticut Mensa',
   description:
-    'Southern Connecticut Mensa — a welcoming community of curious, like-minded people in Fairfield County, Connecticut.',
+    'Southern Connecticut Mensa — a community of curious, engaged, like-minded people in Fairfield County, Connecticut.',
 };
 ---
 
-<PageLayout metadata={metadata}>
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-    <div class="max-w-3xl">
-      <p class="text-sm font-semibold tracking-wide text-muted dark:text-gray-300">
-        Fairfield County, Connecticut
-      </p>
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <Hero
+    image={{
+      src: '~/assets/images/sctmensa-hero-coast-3000x1500.jpg',
+      alt: 'Fairfield County coastline',
+    }}
+  >
+    <Fragment slot="title">
+      Southern Connecticut Mensa
+    </Fragment>
+  </Hero>
 
-      <h1 class="mt-3 text-4xl md:text-5xl font-semibold tracking-tight">
-        Southern Connecticut Mensa
-      </h1>
+  <!-- Intro Content -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+    <p class="text-lg leading-relaxed text-slate-700">
+      Southern Connecticut Mensa is the local Mensa chapter serving Fairfield County, Connecticut.
+      Our members come from many backgrounds and walks of life, but what we share is curiosity,
+      connection, and a genuine enjoyment of exploring ideas together.
+    </p>
 
-      <p class="mt-5 text-base md:text-lg text-muted dark:text-gray-300">
-        We’re a community of Mensa members who get together to have fun, meet new and interesting people, and explore
-        ideas together. Come to the events that interest you — there’s no single “right” way to participate.
-      </p>
-
-      <div class="mt-7 flex flex-wrap gap-3">
-        <a
-          class="inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-semibold bg-primary text-white hover:opacity-90"
-          href="/events/"
-        >
-          View upcoming events
-        </a>
-        <a
-          class="inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-semibold border border-gray-300 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-800"
-          href="/about/"
-        >
-          Who we are
-        </a>
-        <a
-          class="inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-semibold border border-gray-300 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-800"
-          href="/contact/"
-        >
-          Contact
-        </a>
-      </div>
-    </div>
-
-    <div class="mt-12 grid gap-6 md:grid-cols-3">
-      <div class="rounded-xl border border-gray-200 dark:border-slate-800 p-6">
-        <div class="font-semibold">Social events</div>
-        <p class="mt-2 text-sm text-muted dark:text-gray-400">
-          Dinners, barbecues, bowling nights, and casual get-togethers.
-        </p>
-      </div>
-
-      <div class="rounded-xl border border-gray-200 dark:border-slate-800 p-6">
-        <div class="font-semibold">Mind-engaging + social</div>
-        <p class="mt-2 text-sm text-muted dark:text-gray-400">
-          Game nights, escape rooms, trivia, and collaborative challenges.
-        </p>
-      </div>
-
-      <div class="rounded-xl border border-gray-200 dark:border-slate-800 p-6">
-        <div class="font-semibold">Speakers + discussions</div>
-        <p class="mt-2 text-sm text-muted dark:text-gray-400">
-          Members and local experts share talks on topics from space and engineering to finance, sports, and entertainment.
-        </p>
-      </div>
-    </div>
-
-    <div class="mt-10 rounded-xl bg-gray-50 dark:bg-slate-900/40 border border-gray-200 dark:border-slate-800 p-6">
-      <div class="md:flex md:items-center md:justify-between gap-6">
-        <div class="max-w-3xl">
-          <div class="font-semibold">Guests are often welcome</div>
-          <p class="mt-2 text-sm text-muted dark:text-gray-300">
-            Spouses, partners, and guests are often invited to social events. Each event listing notes whether guests are
-            welcome, so it’s easy to know what to expect.
-          </p>
-        </div>
-        <div class="mt-4 md:mt-0 flex gap-3">
-          <a
-            class="inline-flex items-center rounded-lg px-4 py-2 text-sm font-semibold border border-gray-300 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-800"
-            href="/events/"
-          >
-            See events
-          </a>
-          <a
-            class="inline-flex items-center rounded-lg px-4 py-2 text-sm font-semibold border border-gray-300 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-800"
-            href="/join-mensa/"
-          >
-            Join Mensa
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-10 grid gap-6 md:grid-cols-2">
-      <div class="rounded-xl border border-gray-200 dark:border-slate-800 p-6">
-        <div class="font-semibold">Local chapter, bigger community</div>
-        <p class="mt-2 text-sm text-muted dark:text-gray-400">
-          Members also participate in Mind Games and regional and national Mensa gatherings held throughout the country.
-        </p>
-      </div>
-
-      <div class="rounded-xl border border-gray-200 dark:border-slate-800 p-6">
-        <div class="font-semibold">New here?</div>
-        <p class="mt-2 text-sm text-muted dark:text-gray-400">
-          Start with an event that sounds fun, or contact us and we’ll help you pick a great first one.
-        </p>
-        <div class="mt-4">
-          <a class="text-sm font-semibold hover:underline" href="/contact/">Send a quick note →</a>
-        </div>
-      </div>
-    </div>
+    <p class="mt-6 text-lg leading-relaxed text-slate-700">
+      We’re a community of like-minded people with shared experiences around being intelligent.
+      We get together to have fun, meet new and interesting people, and challenge our minds.
+      It’s a welcoming community where it’s okay to be yourself.
+    </p>
   </section>
-</PageLayout>
+</Layout>
