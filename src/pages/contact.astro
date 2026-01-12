@@ -1,79 +1,40 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import heroImage from '~/assets/images/sctmensa-hero-coast-3000x1500.jpg';
 
 const metadata = {
   title: 'Contact',
+  description: 'Contact Southern Connecticut Mensa with questions about membership and events.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <section class="relative w-full overflow-hidden">
+    <div class="relative h-[260px] sm:h-[320px] md:h-[420px]">
+      <img
+        src={heroImage.src}
+        alt="Fairfield County coastline"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-black/25"></div>
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+      <div class="absolute inset-0 flex items-end justify-center px-6 pb-10 md:pb-14">
+        <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-center drop-shadow">
+          Contact
+        </h1>
+      </div>
+    </div>
+  </section>
 
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+    <p class="text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+      Use this page for a simple contact form and/or an email address for questions about events, membership, and visiting.
+    </p>
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+    <p class="mt-6 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+      (We’ll wire the form to your preferred method later.)
+    </p>
+  </section>
 </Layout>
