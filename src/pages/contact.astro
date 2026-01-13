@@ -4,11 +4,12 @@ import heroImage from '~/assets/images/sctmensa-hero-coast-3000x1500.jpg';
 
 const metadata = {
   title: 'Contact',
-  description: 'Contact Southern Connecticut Mensa with questions about membership and events.',
+  description: 'Contact Southern Connecticut Mensa to learn more about membership, events, and programs.',
 };
 ---
 
 <Layout metadata={metadata}>
+  <!-- HERO -->
   <section class="relative w-full overflow-hidden">
     <div class="relative h-[200px] sm:h-[260px] md:h-[320px]">
       <img
@@ -28,13 +29,43 @@ const metadata = {
     </div>
   </section>
 
+  <!-- BODY CONTENT -->
   <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
     <p class="text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      Use this page for a simple contact form and/or an email address for questions about events, membership, and visiting.
+      Have a question or want to get involved? Reach out to the contact below that best matches what you’re looking for,
+      and we’ll point you in the right direction.
     </p>
 
-    <p class="mt-6 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      (We’ll wire the form to your preferred method later.)
-    </p>
+    <div class="mt-10 space-y-10">
+      <div>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Do you want to learn more about the chapter and/or schedule a test?
+        </h2>
+        <p class="mt-3 text-lg text-gray-800 dark:text-slate-200">
+          Joe Lee — President<br />
+          j88lee8@gmail.com
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Do you want to learn more about upcoming events and how to get involved?
+        </h2>
+        <p class="mt-3 text-lg text-gray-800 dark:text-slate-200">
+          Christopher Grass — Activities Chair<br />
+          cgrass@kw.com
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Do you want to learn more about our Youth Program?
+        </h2>
+        <p class="mt-3 text-lg text-gray-800 dark:text-slate-200">
+          Larry Schwartz — Youth Coordinator<br />
+          statguylarry@gmail.com
+        </p>
+      </div>
+    </div>
   </section>
 </Layout>
