@@ -3,15 +3,54 @@ import Layout from '~/layouts/PageLayout.astro';
 import heroImage from '~/assets/images/sctmensa-hero-coast-3000x1500.jpg';
 
 const metadata = {
-  title: 'Who We Are',
-  description: 'Learn about Southern Connecticut Mensa and the community we’re building in Fairfield County.',
+  title: 'Past Events',
+  description: 'Highlights from recent Southern Connecticut Mensa chapter events.',
 };
+
+// Update these any time you want (add more events, change captions, etc.)
+const events = [
+  {
+    title: '2025 Holiday Party at Colony Pizza',
+    date: 'Dec 14, 2025',
+    caption:
+      'Members gathered in Norwalk for our annual holiday celebration — great conversation, laughter, and plenty of pizza.',
+    image: '/events/holiday-party-2025.jpg',
+    // If your actual image is a different size, you can change these later.
+    // For now these prevent the “MissingImageDimension” build error.
+    width: 1600,
+    height: 900,
+  },
+  {
+    title: '2025 Food Drive',
+    date: '2025',
+    caption: 'A look back at our chapter’s 2025 food drive — thanks to everyone who participated.',
+    image: '/events/food-drive-2025.jpg',
+    width: 1600,
+    height: 900,
+  },
+  {
+    title: '2025 Summer BBQ',
+    date: '2025',
+    caption: 'Good company, great food, and a relaxed summer get-together.',
+    image: '/events/summer-BBQ-2025.jpg',
+    width: 1600,
+    height: 900,
+  },
+  {
+    title: '2025 June Game Night',
+    date: 'Jun 7, 2025',
+    caption: 'A fun night of games, snacks, and laughs in Stamford.',
+    image: '/events/game-night-june-2025.jpg',
+    width: 1600,
+    height: 900,
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- HERO (full width image + text overlay) -->
+  <!-- Hero -->
   <section class="relative w-full overflow-hidden">
-    <div class="relative h-[200px] sm:h-[260px] md:h-[320px]">
+    <div class="relative h-[200px] sm:h-[240px] md:h-[280px]">
       <img
         src={heroImage.src}
         alt="Fairfield County coastline"
@@ -21,58 +60,43 @@ const metadata = {
       />
       <div class="absolute inset-0 bg-black/25"></div>
 
-      <div class="absolute inset-0 flex items-end justify-center px-6 pb-10 md:pb-14">
+      <div class="absolute inset-0 flex items-end justify-center px-6 pb-10 md:pb-12">
         <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-center drop-shadow">
-          Who We Are
+          Past Events
         </h1>
       </div>
     </div>
   </section>
 
-   <!-- BODY CONTENT -->
-  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+  <!-- Intro -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-12">
     <p class="text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      Mensa is an international society for people who score in the top 2% on accepted intelligence tests. Founded in
-      1946 in Oxford, England, Mensa now has approximately 150,000 members worldwide. The first American members joined
-      in the early 1950s, and today American Mensa includes more than 50,000 members—making it the largest national
-      Mensa organization in the world.
+      A look back at recent Southern Connecticut Mensa events — good conversations, great company, and memorable moments.
     </p>
 
-    <p class="mt-6 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      As the Mensa Constitution states, one of the organization’s primary goals is
-      “<strong>to provide a stimulating intellectual and social environment for its members</strong>.”
-      At Mensa, it’s not just about IQ; it’s about the shared experience of being exceptional together. It’s about
-      connecting with people who value curiosity, thoughtful conversation, and intellectual growth.
-    </p>
-
-    <p class="mt-6 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      Southern Connecticut Mensa is the local chapter of American Mensa serving Fairfield County, Connecticut. We have
-      over 225 members locally and regularly connect with several hundred more through our neighboring chapter,
-      Connecticut &amp; Western Massachusetts Mensa. While we share a common IQ requirement, everything else about our
-      membership varies widely.
-    </p>
-
-    <p class="mt-6 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      Our members range from kindergarteners to nonagenarians. We come from all over the country and represent a wide
-      variety of backgrounds, cultures, beliefs, and life experiences. The only thing we have in common is curiosity —
-      everything else varies. That diversity of perspectives is what makes our conversations interesting and our
-      community feel alive.
-    </p>
-
-    <p class="mt-6 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      Southern Connecticut Mensa is run entirely by volunteers. Leadership exists to support the community — organizing
-      events, handling communications, and helping create opportunities for members to connect.
-    </p>
-
-    <p class="mt-6 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      If you’re interested in getting involved, whether by helping with events, sharing ideas, or supporting the
-      chapter in other ways, we’re always happy to hear from you.
-    </p>
-
-    <p class="mt-6 text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      Above all, we strive to create an environment where people can be intellectually challenged, socially connected,
-      and genuinely have fun.
-    </p>
+    <!-- Gallery -->
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {events.map((e) => (
+        <article class="rounded-2xl overflow-hidden border border-gray-200/70 dark:border-white/10 bg-white dark:bg-slate-900 shadow-sm">
+          <div class="bg-gray-100 dark:bg-slate-800">
+            <img
+              src={e.image}
+              alt={e.title}
+              width={e.width}
+              height={e.height}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-56 object-cover"
+            />
+          </div>
+          <div class="p-5">
+            <div class="text-sm text-gray-500 dark:text-slate-400">{e.date}</div>
+            <h2 class="mt-1 text-lg font-semibold text-gray-900 dark:text-white">{e.title}</h2>
+            <p class="mt-2 text-sm leading-relaxed text-gray-700 dark:text-slate-300">{e.caption}</p>
+          </div>
+        </article>
+      ))}
+    </div>
   </section>
+</Layout>
 
-</Layout>  
