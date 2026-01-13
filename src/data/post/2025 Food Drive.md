@@ -7,6 +7,8 @@ tags:
   - events
   - social
 image: /events/food-drive-2025.jpg
+imageWidth: 1200
+imageHeight: 630
 ---
 
 
