@@ -6,6 +6,7 @@ category: Events
 tags:
   - events
   - social
+image: /events/summer-BBQ-2025.jpg
 ---
 
 
