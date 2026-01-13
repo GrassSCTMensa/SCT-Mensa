@@ -6,10 +6,8 @@ category: Events
 tags:
   - events
   - social
+image: /events/holiday-party-2025.jpg
 ---
-
 
 We celebrated the end of the year with our 2025 Holiday Party at Colony Pizza in Norwalk.
 It was a relaxed evening filled with great conversation, laughter, and plenty of pizza.
-
-![Members at the 2025 Holiday Party](/events/holiday-party-2025.jpg)
