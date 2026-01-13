@@ -22,7 +22,7 @@ export const headerData = {
         { text: 'Puzzles', href: getPermalink('/puzzles') },
 
         // External members site
-        { text: 'Members', href: 'https://scm66.org/index.html' },
+        { text: 'Members', href: getPermalink('/members') },
       ],
     },
   ],
