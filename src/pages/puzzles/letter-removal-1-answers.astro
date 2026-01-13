@@ -1,0 +1,113 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import heroImage from '~/assets/images/sctmensa-hero-coast-3000x1500.jpg';
+
+const metadata = {
+  title: 'Puzzle #1 Answers',
+  description: 'Answer key for Puzzle #1 (Letter Removal).',
+};
+
+// Answer key (web version)
+const answers = [
+  ['A', 'BnB guest', 'Boarder', 'Border', 'Separates Countries'],
+  ['B', 'C-3PO for one', 'Robot', 'Root', 'Cheer'],
+  ['C', 'Proclamation', 'Edict', 'Edit', 'Fix the first draft'],
+  ['D', '30 second spot', 'Advert', 'Avert', 'Look away'],
+  ['E', 'Trouble', 'Beset', 'Best', 'A#1'],
+  ['F', 'Put off', 'Defer', 'Deer', 'Bambi or Rudolph'],
+  ['G', 'Get their attention', 'Nudge', 'Nude', 'Birthday Suit'],
+  ['H', 'Floral prick', 'Thorn', 'Torn', 'Undecided'],
+  ['I', 'Take possession of', 'Claim', 'Clam', 'Some Chowders'],
+  ['J', 'Icelandic feature', 'Fjord', 'Ford', 'Assembly Line King'],
+  ['K', 'Football move', 'Block', 'Bloc', 'Group of nations'],
+  ['L', 'New girlfriend', 'Flame', 'Fame', "Fortune's partner"],
+  ['M', 'Needs a cane', 'Limps', 'Lips', 'Teeth protector'],
+  ['N', 'There in your time of need', 'Friend', 'Fried', 'Chicken from the Bluegrass State'],
+  ['O', 'Dissatisfied sound', 'Booing', 'Boing', 'Spring sound'],
+  ['P', 'Sucker', 'Chump', 'Chum', 'Pal'],
+  ['Q', 'Racket game', 'Squash', 'Sash', 'Pageant winner Accessory'],
+  ['R', 'Cow spread', 'Butter', 'Butte', 'Inverted Valley'],
+  ['S', '0 for last 20', 'Slump', 'Lump', 'Medical Scare'],
+  ['T', 'Make Juicy', 'Baste', 'Base', '4 on the field'],
+  ['U', 'Starter car', 'Coupe', 'Cope', 'To get by'],
+  ['V', "Pitcher's trick", 'Curving', 'Curing', 'Doctors purpose'],
+  ['W', 'Blue Bird Company', 'Twitter', 'Titter', 'Giggle'],
+  ['X', 'Lumberjacks or Guitarists', 'Axmen', 'Amen', 'Holy response'],
+  ['Y', "Pilot's Activity", 'Flying', 'Fling', 'One night stand'],
+  ['Z', 'Periodically 30', 'Zinc', 'Inc', 'Corporate Structure'],
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- HERO -->
+  <section class="relative w-full overflow-hidden">
+    <div class="relative h-[200px] sm:h-[260px] md:h-[320px]">
+      <img
+        src={heroImage.src}
+        alt="Fairfield County coastline"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-black/25"></div>
+
+      <div class="absolute inset-0 flex items-end justify-center px-6 pb-10 md:pb-14">
+        <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-center drop-shadow">
+          Puzzle #1 Answers
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+    <p class="text-lg leading-relaxed text-gray-800 dark:text-slate-200">
+      Answer key for Puzzle #1 (Letter Removal). If you haven’t tried it yet, go back to the puzzle first — then come
+      here to check your work.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a
+        href="/puzzles/"
+        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50 transition-colors dark:border-white/20 dark:text-white dark:hover:bg-white/10"
+      >
+        Back to Puzzle
+      </a>
+
+      <!-- Optional: works only if you place the PDF in public/puzzles/ -->
+      <a
+        href="/puzzles/letter-removal-puzzle-1-answers.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center rounded-full bg-[#0f2a44] px-6 py-3 text-sm font-semibold text-white hover:bg-[#14395f] transition-colors"
+      >
+        Download Answer Key PDF
+      </a>
+    </div>
+
+    <div class="mt-10 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-slate-900/30">
+      <table class="min-w-full text-left">
+        <thead class="border-b border-slate-200 dark:border-white/10">
+          <tr>
+            <th class="px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white">Letter</th>
+            <th class="px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white">1st Clue</th>
+            <th class="px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white">1st Word</th>
+            <th class="px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white">2nd Word</th>
+            <th class="px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white">2nd Clue</th>
+          </tr>
+        </thead>
+        <tbody>
+          {answers.map(([letter, clue1, w1, w2, clue2]) => (
+            <tr class="border-b border-slate-100 last:border-b-0 dark:border-white/5">
+              <td class="px-5 py-4 text-sm font-semibold text-gray-900 dark:text-white">{letter}</td>
+              <td class="px-5 py-4 text-sm text-gray-800 dark:text-slate-200">{clue1}</td>
+              <td class="px-5 py-4 text-sm text-gray-800 dark:text-slate-200">{w1}</td>
+              <td class="px-5 py-4 text-sm text-gray-800 dark:text-slate-200">{w2}</td>
+              <td class="px-5 py-4 text-sm text-gray-800 dark:text-slate-200">{clue2}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>
