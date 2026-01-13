@@ -6,6 +6,7 @@ category: Events
 tags:
   - events
   - social
+image: /events/food-drive-2025.jpg
 ---
 
 
