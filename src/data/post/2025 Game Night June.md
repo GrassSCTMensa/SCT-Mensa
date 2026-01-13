@@ -6,6 +6,7 @@ category: Events
 tags:
   - events
   - social
+image: /events/game-night-june-2025.jpg
 ---
 
 
