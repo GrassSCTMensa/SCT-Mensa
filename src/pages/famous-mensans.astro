@@ -6,6 +6,88 @@ const metadata = {
   title: 'Famous Mensans',
   description: 'Notable Mensa members and interesting stories from across the community.',
 };
+
+type Mensan = {
+  name: string;
+  category:
+    | 'Science'
+    | 'Tech'
+    | 'Arts'
+    | 'Media'
+    | 'Military'
+    | 'Business'
+    | 'Mensa'
+    | 'Youth'
+    | 'Entertainment'
+    | 'Fictional';
+  note: string;
+};
+
+// Source list (from your doc). We’ll render it in a shuffled, mixed order.
+const mensans: Mensan[] = [
+  { name: 'Isaac Asimov', category: 'Arts', note: 'Writer' },
+  { name: 'Geena Davis', category: 'Entertainment', note: 'Actress' },
+  { name: 'Nolan Gould', category: 'Entertainment', note: 'Actor (Luke from Modern Family)' },
+  { name: 'Scott Adams', category: 'Arts', note: 'Cartoonist (Dilbert)' },
+  { name: 'Gal Gadot', category: 'Entertainment', note: 'Actress' },
+  { name: 'James Woods', category: 'Entertainment', note: 'Actor' },
+  { name: 'Jane Goodall', category: 'Science', note: 'Scientist' },
+  { name: 'Maria Shriver', category: 'Media', note: 'Journalist' },
+  { name: 'Lisa Simpson', category: 'Fictional', note: 'Cartoon scientist (fictional character)' },
+  { name: 'Jodie Foster', category: 'Entertainment', note: 'Actress' },
+  { name: 'Joseph Harris-Birtill', category: 'Youth', note: 'Youngest ever Mensan (2 years, 182 days)' },
+  { name: 'Isla McNabb', category: 'Youth', note: 'Youngest ever female Mensan (2 years, 195 days)' },
+  { name: 'John McAfee', category: 'Tech', note: 'Programmer & founder of McAfee Antivirus' },
+  { name: 'Norman Schwarzkopf', category: 'Military', note: 'U.S. Army general (retired)' },
+  { name: 'Adrian Cronauer', category: 'Media', note: 'Former radio personality (inspired Good Morning, Vietnam)' },
+  { name: 'Marilyn vos Savant', category: 'Mensa', note: 'Highest recorded IQ (228)' },
+  { name: 'Martin Cooper', category: 'Tech', note: 'Engineer (inventor of the handheld mobile phone)' },
+  { name: 'Raven (Scott Levy)', category: 'Entertainment', note: 'Professional wrestler' },
+  { name: 'Peter Sturgeon', category: 'Mensa', note: 'Founder of American Mensa' },
+  { name: 'Roland Berrill & Dr. Lancelot Lionel Ware', category: 'Mensa', note: 'Founders of Mensa (1946)' },
+  { name: 'Markus Persson', category: 'Tech', note: 'Video game designer (created Minecraft)' },
+  { name: 'Richard Lederer', category: 'Arts', note: 'Author (Anguished English series & others)' },
+  { name: 'Asia Carrera', category: 'Entertainment', note: 'Adult film star' },
+  { name: 'Richard Bolles', category: 'Arts', note: 'Author (What Color Is Your Parachute?)' },
+  { name: 'Jean Auel', category: 'Arts', note: 'Author (Clan of the Cave Bear)' },
+  { name: 'Maurice Kanbar', category: 'Business', note: 'Inventor (created SKYY Vodka)' },
+];
+
+// Shuffle but try to avoid the same category appearing back-to-back.
+function shuffleAvoidAdjacent<T>(arr: T[], keyFn: (x: T) => string) {
+  const items = [...arr];
+
+  // Fisher–Yates shuffle
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+
+  // Greedy rebuild to reduce adjacent duplicates
+  const out: T[] = [];
+  while (items.length) {
+    const lastKey = out.length ? keyFn(out[out.length - 1]) : null;
+    let idx = items.findIndex((x) => keyFn(x) !== lastKey);
+    if (idx === -1) idx = 0; // unavoidable, take what we have
+    out.push(items.splice(idx, 1)[0]);
+  }
+  return out;
+}
+
+const shuffled = shuffleAvoidAdjacent(mensans, (m) => m.category);
+
+const categoryStyles: Record<Mensan['category'], string> = {
+  Science: 'bg-emerald-100 text-emerald-900 ring-emerald-200',
+  Tech: 'bg-sky-100 text-sky-900 ring-sky-200',
+  Arts: 'bg-violet-100 text-violet-900 ring-violet-200',
+  Media: 'bg-amber-100 text-amber-900 ring-amber-200',
+  Military: 'bg-slate-200 text-slate-900 ring-slate-300',
+  Business: 'bg-lime-100 text-lime-900 ring-lime-200',
+  Mensa: 'bg-indigo-100 text-indigo-900 ring-indigo-200',
+  Youth: 'bg-rose-100 text-rose-900 ring-rose-200',
+  Entertainment: 'bg-fuchsia-100 text-fuchsia-900 ring-fuchsia-200',
+  Fictional: 'bg-zinc-100 text-zinc-900 ring-zinc-200',
+};
 ---
 
 <Layout metadata={metadata}>
@@ -28,9 +110,38 @@ const metadata = {
     </div>
   </section>
 
-  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-14">
     <p class="text-lg leading-relaxed text-gray-800 dark:text-slate-200">
-      This page can highlight notable members and achievements (carefully, with proper sourcing and permissions).
+      A mixed, randomized list of notable Mensa members and related figures.
+    </p>
+
+    <ul class="mt-8 grid gap-4 sm:gap-5 md:grid-cols-2">
+      {shuffled.map((m) => (
+        <li class="rounded-2xl border border-slate-200/70 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/40 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h2 class="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+                {m.name}
+              </h2>
+              <p class="mt-1 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                {m.note}
+              </p>
+            </div>
+
+            <span
+              class={`shrink-0 inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium ring-1 ${categoryStyles[m.category]}`}
+              aria-label={`Category: ${m.category}`}
+            >
+              {m.category}
+            </span>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <p class="mt-8 text-sm text-slate-600 dark:text-slate-400">
+      Note: This list includes a fictional character entry as it commonly appears in popular “famous Mensans” roundups.
+      Consider adding citations/links for each entry if you plan to publish this publicly.
     </p>
   </section>
 </Layout>
